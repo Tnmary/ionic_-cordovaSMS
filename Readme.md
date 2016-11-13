@@ -10,28 +10,45 @@
     ①、添加插件$cordovaSMS
 
 cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
+
     ②、在controller中添加依赖
 
 ##3、代码实现
 
 //发短信
 $scope.sendMessage=function(){
+
     //CONFIGURATION
+    
     var options = {
+    
         replaceLineBreaks: false, // true to replace \n by a new line, false by default
+        
         android: {
+        
             intent: 'INTENT'  // send SMS with the native android SMS messaging
+            
             //intent: '' // send SMS without open any other app
+            
         }
+        
     };
     $cordovaSms
+    
         .send('18654332789', 'SMS content',options)
+        
         .then(function() {
+        
             // Success! SMS was sent
+            
             CommonJs.AlertPopup("发送短信成功");
+            
         }, function(error) {
+        
             // An error occurred
+            
         });
+        
 };
 ##4、注意点
 
